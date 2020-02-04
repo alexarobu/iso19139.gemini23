@@ -127,4 +127,34 @@
     </xsl:choose>
   </xsl:template>
 
+  <!-- ================================================================= -->
+    <!-- Insert resource id if it does not exist -->
+
+    <!--<xsl:template match="gmd:identificationInfo/*/gmd:citation/gmd:CI_Citation/gmd:identifier/gmd:RS_Identifier/gmd:code" >-->
+    <xsl:template match="gmd:identificationInfo/*/gmd:citation/gmd:CI_Citation" >
+
+        <xsl:copy>
+            <xsl:apply-templates select="gmd:title|gmd:alternateTitle|gmd:date|gmd:date|gmd:edition|gmd:editionDate"/>
+
+            <xsl:choose>
+                <xsl:when test="not(gmd:identifier)">
+                    <xsl:message>==== Add missing resource identifier ====</xsl:message>
+                    <gmd:identifier>
+                        <gmd:RS_Identifier>
+                            <gmd:code>
+                                <gco:CharacterString><xsl:value-of select="/root/env/uuid"/>_resource</gco:CharacterString>
+                            </gmd:code>
+                        </gmd:RS_Identifier>
+                    </gmd:identifier>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates select="gmd:identifier"/>
+                </xsl:otherwise>
+            </xsl:choose>
+
+            <xsl:apply-templates select="gmd:citedResponsibleParty|gmd:presentationForm|gmd:series|gmd:otherCitationDetails|gmd:collectiveTitle|gmd:ISBN|gmd:ISSN"/>
+
+        </xsl:copy>
+    </xsl:template>
+
 </xsl:stylesheet>
