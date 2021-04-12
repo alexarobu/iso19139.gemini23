@@ -109,9 +109,9 @@
     value="'Commission Regulation (EC) No 976/2009 of 19 October 2009 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards the Network Services'"/>
   <!-- External documents -->
   <sch:let name="defaultCRScodes"
-    value="document('https://agi.org.uk/images/xslt/d4.xml')"/>
+    value="document('d4.xml')"/>
   <sch:let name="charSetCodes"
-    value="document('https://agi.org.uk/images/xslt/MD_CharacterSetCode.xml')"/>
+    value="document('MD_CharacterSetCode.xml')"/>
   <!-- Text for validation reporting -->
   <sch:let name="LPreportsupplement"
     value="'This test may be called by the following Metadata Items: 3 - Dataset Language and 33 - Metadata Language'"/>
