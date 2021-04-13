@@ -21,7 +21,7 @@
     <sch:ns prefix="geonet" uri="http://www.fao.org/geonetwork"/>
     <sch:p>This Schematron schema is designed to show metadata recommendations for the GEMINI2 discovery metadata standard.</sch:p>
     <!-- External document(s) -->
-    <sch:let name="defaultCRScodes" value="document('https://agi.org.uk/images/xslt/d4.xml')" />
+    <sch:let name="defaultCRScodes" value="document('https://raw.githubusercontent.com/agiorguk/gemini-schematron/main/resources/d4.xml')" />
     <!-- IR titles -->
     <sch:let name="inspire1089" value="'Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services'"/>
     <sch:let name="inspire1089x" value="'COMMISSION REGULATION (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services'"/>
