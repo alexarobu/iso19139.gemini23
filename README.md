@@ -34,6 +34,7 @@ Ensure that you build GeoNetwork with the directive `-DschemasCopy=True` (and al
 sudo mvn clean install -DskipTests -DschemasCopy=true -Pes
 cd web
 sudo mvn jetty:run -DschemasCopy=true
+```
 
 
 Once the application is built `web/target/geonetwork.war` will contain GeoNetwork with the Gemini 2.3 schema plugin included.
