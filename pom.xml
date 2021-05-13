@@ -5,10 +5,9 @@
   <parent>
     <artifactId>schemas</artifactId>
     <groupId>org.geonetwork-opensource.schemas</groupId>
-    <version>3.10-SNAPSHOT</version>
+    <version>3.12-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <version>3.10-SNAPSHOT</version>  
 
   <artifactId>schema-iso19139.gemini23</artifactId>
   <name>Gemini 2.3 Metadata Profile</name>
@@ -24,7 +23,7 @@
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>schema-iso19139</artifactId>
-      <version>3.10-SNAPSHOT</version>
+      <version>3.12-SNAPSHOT</version>
 	      <scope>provided</scope>
     </dependency>
 
