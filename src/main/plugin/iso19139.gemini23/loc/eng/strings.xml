@@ -819,7 +819,7 @@
 <distributionsrv_help>
     <div class="row">
     <div class="col-xs-offset-2 col-xs-8">
-      <p class="help-block">Optional for services.</p>
+      <p class="help-block">Not required for services.</p>
       </div>
   </div>
 </distributionsrv_help>
@@ -828,8 +828,7 @@
     <div class="col-xs-offset-2 col-xs-8">
       <p class="help-block">The purpose of this element is to point to where the dataset or dataset series may be directly accessed online, or to an online resource providing more information about accessing the dataset or dataset series.</p>
       <ol class="help-block">
-        <li>Use the associated resource wizard for adding new resource locators.</li>
-        <li>Record at least the URL and the function.</li>
+        <li>Use the associated resource wizard for adding or editing resource locators.</li>
         <li>For more guidelines see <a target="_blank" href="https://www.agi.org.uk/40-gemini/1062-gemini-datasets-and-data-series#19">Gemini Guidance</a></li>
       </ol>
       </div>
@@ -840,8 +839,7 @@
     <div class="col-xs-offset-2 col-xs-8">
       <p class="help-block">The purpose of this element is to point to where the service may be directly accessed online, or to an online resource providing more information about accessing the service.</p>
       <ol class="help-block">
-        <li>Use the associated resource wizard.</li>
-        <li>Record at least the protocol, URL and name.</li>
+        <li>Use the associated resource wizard for adding or editing resource locators.</li>
         <li>For more guidelines see <a target="_blank" href="https://www.agi.org.uk/40-gemini/1063-gemini-services#19">Gemini Guidance</a></li>
       </ol>
       </div>
