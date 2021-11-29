@@ -359,9 +359,9 @@
   </multilingualFields>
 
   <tableFields>
-    <table for="gmd:CI_ResponsibleParty">
+    <!-- <table for="gmd:CI_ResponsibleParty">
       <header>
-        <!-- TODO: Add label from strings.xml / label with context-->
+        <col label="gmd:individualName"/>
         <col label="gmd:organisationName" class="gn-required"/>
         <col label="gmd:deliveryPoint"/>
         <col label="gmd:electronicMailAddress" class="gn-required"/>
@@ -369,13 +369,14 @@
         <col/>
       </header>
       <row>
+        <col xpath="gmd:individualName"/>
         <col xpath="gmd:organisationName"/>
         <col xpath="gmd:contactInfo/*/gmd:address/*/gmd:deliveryPoint"/>
         <col xpath="gmd:contactInfo/*/gmd:address/*/gmd:electronicMailAddress"/>
         <col xpath="gmd:role"/>
         <col del=".."/>
       </row>
-    </table>
+    </table> -->
     <table for="gmd:CI_OnlineResource">
       <header>
         <col label="gmd:protocol"/>
@@ -3238,12 +3239,18 @@
             xpath="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:status">
           </field>
 
-          <field
+          <!-- <field
             xpath="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact"
             if="count(gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification) > 0">
-          </field>
+          </field> -->
 
-          <action type="add" name="pointOfContact" btnLabel="addContact"
+          <field name="pointOfContact"
+                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:pointOfContact"
+                 or="pointOfContact"
+                 in="/gmd:MD_Metadata/gmd:identificationInfo/*"
+                 del="."/>
+
+          <!-- <action type="add" name="pointOfContact" btnLabel="addContact"
                   addDirective="data-gn-directory-entry-selector"
                   or="pointOfContact"
                   in="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification">
@@ -3254,7 +3261,10 @@
               data-popup-action="true"
               data-element-name="gmd:pointOfContact"
               data-variables="gmd:role/gmd:CI_RoleCode/@codeListValue~{role}"/>
-          </action>
+          </action> -->
+
+          
+
           <text ref="responsibleparty_help" if="count(gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification) > 0"/>
 
           <field
@@ -3274,6 +3284,8 @@
               data-element-name="gmd:pointOfContact"
               data-variables="gmd:role/gmd:CI_RoleCode/@codeListValue~{role}"/>
           </action>
+
+
 
           <text ref="responsiblepartysrv_help" if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification) > 0"/>
 
