@@ -605,7 +605,7 @@
     <div class="col-xs-offset-2 col-xs-8">
       <p class="help-block">This informs the user about who is responsible for the data resource.</p>
       <ol class="help-block">
-        <li>Include at least the organisation name, delivery point, email, and role. A generic role may be given.</li>
+        <li>Include at least the organisation name, delivery point, email, and role. A generic role may be given. Delete those you don't need, or use advanced view to add more elements.</li>
         <li>For more guidelines see <a target="_blank" href="https://www.agi.org.uk/40-gemini/1062-gemini-datasets-and-data-series#23">Gemini Guidance</a></li>
       </ol>
       </div>
