@@ -73,7 +73,7 @@
           Update-fixed-info.xsl already removes gco:Boolean when empty due to nilreason attribute, to avoid xsd errors. No need to change it.
     -->
     <for name="gco:Boolean"
-         xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/*/gmd:result/gmd:DQ_ConformanceResult/gmd:pass"
+         xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/*/gmd:report/*/gmd:result/gmd:DQ_ConformanceResult/gmd:pass"
          use="data-gn-checkbox-with-nilreason">
       <directiveAttributes
         data-tag-name="gmd:pass"

@@ -220,7 +220,7 @@
 
   </xsl:template>
 
-  <!-- servicees -->
+  <!-- services -->
 
     <xsl:template match="srv:SV_ServiceIdentification">
       <xsl:copy>
