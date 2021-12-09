@@ -945,6 +945,7 @@
     <description>Address line for the location (as described in ISO 11180, annex
       A)
     </description>
+    <condition>mandatory</condition>
   </element>
   <element name="gmd:denominator" id="57.0">
     <label>Denominator</label>
@@ -1139,6 +1140,7 @@
     <description>Address of the electronic mailbox of the responsible organization or
       individual
     </description>
+    <condition>mandatory</condition>
   </element>
   <element name="gmd:environmentDescription" id="44.0">
     <label>Environment description</label>
@@ -2057,7 +2059,7 @@
   <element name="gmd:organisationName" id="376.0">
     <label>Organisation name</label>
     <description>Name of the responsible organization</description>
-    <condition>conditional</condition>
+    <condition>mandatory</condition>
   </element>
   <element name="gmd:orientationParameterAvailability" id="172.0">
     <label>Orientation parameter availability</label>
