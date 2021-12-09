@@ -73,7 +73,7 @@
           Update-fixed-info.xsl already removes gco:Boolean when empty due to nilreason attribute, to avoid xsd errors. No need to change it.
     -->
     <for name="gco:Boolean"
-         xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:report/*/gmd:result/gmd:DQ_ConformanceResult/gmd:pass"
+         xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/*/gmd:report/*/gmd:result/gmd:DQ_ConformanceResult/gmd:pass"
          use="data-gn-checkbox-with-nilreason">
       <directiveAttributes
         data-tag-name="gmd:pass"
@@ -239,7 +239,7 @@
     <name>gmd:referenceSystemInfo</name>
     <name>gmd:spatialResolution</name>
     <name>gmd:offLine</name>
-    <name>gmd:onLine</name>
+<!--     <name>gmd:onLine</name> -->
     <name>gmd:address</name>
     <name>gmd:projection</name>
     <name>gmd:ellipsoid</name>
@@ -359,9 +359,9 @@
   </multilingualFields>
 
   <tableFields>
-    <table for="gmd:CI_ResponsibleParty">
+    <!-- <table for="gmd:CI_ResponsibleParty">
       <header>
-        <!-- TODO: Add label from strings.xml / label with context-->
+        <col label="gmd:individualName"/>
         <col label="gmd:organisationName" class="gn-required"/>
         <col label="gmd:deliveryPoint"/>
         <col label="gmd:electronicMailAddress" class="gn-required"/>
@@ -369,13 +369,14 @@
         <col/>
       </header>
       <row>
+        <col xpath="gmd:individualName"/>
         <col xpath="gmd:organisationName"/>
         <col xpath="gmd:contactInfo/*/gmd:address/*/gmd:deliveryPoint"/>
         <col xpath="gmd:contactInfo/*/gmd:address/*/gmd:electronicMailAddress"/>
         <col xpath="gmd:role"/>
         <col del=".."/>
       </row>
-    </table>
+    </table> -->
     <table for="gmd:CI_OnlineResource">
       <header>
         <col label="gmd:protocol"/>
@@ -3238,12 +3239,18 @@
             xpath="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:status">
           </field>
 
-          <field
+          <!-- <field
             xpath="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact"
             if="count(gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification) > 0">
-          </field>
+          </field> -->
 
-          <action type="add" name="pointOfContact" btnLabel="addContact"
+          <field name="pointOfContact"
+                 xpath="/gmd:MD_Metadata/gmd:identificationInfo/*/gmd:pointOfContact"
+                 or="pointOfContact"
+                 in="/gmd:MD_Metadata/gmd:identificationInfo/*"
+                 del="."/>
+
+          <!-- <action type="add" name="pointOfContact" btnLabel="addContact"
                   addDirective="data-gn-directory-entry-selector"
                   or="pointOfContact"
                   in="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification">
@@ -3254,7 +3261,10 @@
               data-popup-action="true"
               data-element-name="gmd:pointOfContact"
               data-variables="gmd:role/gmd:CI_RoleCode/@codeListValue~{role}"/>
-          </action>
+          </action> -->
+
+          
+
           <text ref="responsibleparty_help" if="count(gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification) > 0"/>
 
           <field
@@ -3274,6 +3284,8 @@
               data-element-name="gmd:pointOfContact"
               data-variables="gmd:role/gmd:CI_RoleCode/@codeListValue~{role}"/>
           </action>
+
+
 
           <text ref="responsiblepartysrv_help" if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification) > 0"/>
 
@@ -3566,14 +3578,16 @@
 
           <field xpath="/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:supplementalInformation"/>
           <text ref="supplemental_help" if="count(/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:supplementalInformation) > 0"/>
-            </section>
+       </section> <!--  end indentification info section -->
 
-        <section
-            xpath="/gmd:MD_Metadata/gmd:referenceSystemInfo"  or="referenceSystemInfo" in="/gmd:MD_Metadata" />
+        <section xpath="/gmd:MD_Metadata/gmd:referenceSystemInfo"  or="referenceSystemInfo" in="/gmd:MD_Metadata" />
         <text ref="spatialref_help" if="count(gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification) > 0"/>
         <text ref="spatialrefsrv_help" if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification) > 0"/>
 
         <section name="gmd:distributionInfo">
+        
+        <section name="gmd:distributionFormat">
+        
           <field xpath="/gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:distributionFormat" if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification) = 0"
                  del="."/>
 
@@ -3600,18 +3614,20 @@
         <text ref="distribution_help" if="count(gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification) > 0"/>
         <text ref="distributionsrv_help" if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification) > 0"/>
 
-        <section xpath="/gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions
-            /gmd:MD_DigitalTransferOptions/gmd:onLine"/>
+           	</section>     
+                
 
-        <text ref="resourcelocator_help" if="count(gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification) > 0"/>
+           <section name="gmd:transferOptions">     
+        <!-- Links to resources -->
+          <field 
+                 xpath="/gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions
+            /gmd:MD_DigitalTransferOptions/gmd:onLine"
+                 del="."/>
+          <text ref="resourcelocatorsrv_help" if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification) > 0"/>
+		        <text ref="resourcelocator_help" if="count(gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification) > 0"/>
+			</section>         
 
-
-        <section xpath="gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions" if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification) > 0">
-        </section>
-        <text ref="resourcelocatorsrv_help" if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification) > 0"/>
-                </section>
-
-
+</section>
         <!-- Start dataQualitySection -->
           <!-- <section name="gmd:dataQualityInfo">
             <field xpath="/gmd:MD_Metadata/gmd:dataQualityInfo/gmd:DQ_DataQuality/gmd:scope"/>
@@ -3622,7 +3638,6 @@
                  in="/gmd:MD_Metadata"/>
            <text ref="dataquality_help" if="count(gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification) > 0"/>
             <text ref="dataqualitysrv_help" if="count(gmd:MD_Metadata/gmd:identificationInfo/srv:SV_ServiceIdentification) > 0"/>
-          
           <!-- End dataQualitySection -->
 
         <section name="gmd:MD_Metadata">
@@ -3634,8 +3649,7 @@
           <field xpath="/gmd:MD_Metadata/gmd:characterSet"/>
 
           <field xpath="/gmd:MD_Metadata/gmd:parentIdentifier" or="parentIdentifier"
-                 in="/gmd:MD_Metadata" if="count(gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification) > 0">
-          </field>
+                 in="/gmd:MD_Metadata" if="count(gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification) > 0"/>
           <text ref="parentidentifier_help"/>
           <text ref="parentidentifiernil_help" if="string(/gmd:parentIdentifier/@gco:nilReason)='inapplicable'"/>
 
