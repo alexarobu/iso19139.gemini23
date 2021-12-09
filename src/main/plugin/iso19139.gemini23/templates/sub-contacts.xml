@@ -1,16 +1,19 @@
-<gmd:CI_ResponsibleParty xmlns:gml="http://www.opengis.net/gml/3.2"
-                         xmlns:gts="http://www.isotc211.org/2005/gts"
+<gmd:CI_ResponsibleParty xmlns:xlink="http://www.w3.org/1999/xlink"
+                         xmlns:gml="http://www.opengis.net/gml/3.2"
+                         xmlns:gco="http://www.isotc211.org/2005/gco"
                          xmlns:gmd="http://www.isotc211.org/2005/gmd"
                          xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                         xmlns:gco="http://www.isotc211.org/2005/gco"
-                         xmlns:xlink="http://www.w3.org/1999/xlink">
-   <gmd:organisationName>
+                         xmlns:gts="http://www.isotc211.org/2005/gts">
+  <gmd:individualName>
+      <gco:CharacterString>Name of the individual (optional, delete if not needed)</gco:CharacterString>
+   </gmd:individualName>
+  <gmd:organisationName>
       <gco:CharacterString>Name of the responsible organization</gco:CharacterString>
    </gmd:organisationName>
-   <gmd:positionName>
+  <gmd:positionName>
       <gco:CharacterString>Function performed by the responsible party</gco:CharacterString>
    </gmd:positionName>
-   <gmd:contactInfo>
+  <gmd:contactInfo>
       <gmd:CI_Contact>
          <gmd:phone>
             <gmd:CI_Telephone>
@@ -43,7 +46,7 @@
          </gmd:address>
       </gmd:CI_Contact>
   </gmd:contactInfo>
-   <gmd:role>
+  <gmd:role>
       <gmd:CI_RoleCode codeList="./resources/codeList.xml#CI_RoleCode" codeListValue="pointOfContact"/>
   </gmd:role>
 </gmd:CI_ResponsibleParty>
