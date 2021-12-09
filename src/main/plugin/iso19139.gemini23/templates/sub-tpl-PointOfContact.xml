@@ -18,7 +18,7 @@
          <gmd:phone>
             <gmd:CI_Telephone>
                <gmd:voice>
-                  <gco:CharacterString>Telephone number at which the organization or individual may be contacted</gco:CharacterString>
+                  <gco:CharacterString>Telephone number</gco:CharacterString>
                </gmd:voice>
             </gmd:CI_Telephone>
          </gmd:phone>
@@ -28,19 +28,19 @@
                   <gco:CharacterString>Address line for the location</gco:CharacterString>
                </gmd:deliveryPoint>
                <gmd:city>
-                  <gco:CharacterString>City of the location</gco:CharacterString>
+                  <gco:CharacterString>Town or City</gco:CharacterString>
                </gmd:city>
                <gmd:administrativeArea>
                   <gco:CharacterString/>
                </gmd:administrativeArea>
                <gmd:postalCode>
-                  <gco:CharacterString>ZIP or other postal code</gco:CharacterString>
+                  <gco:CharacterString>Postal code</gco:CharacterString>
                </gmd:postalCode>
                <gmd:country>
-                  <gco:CharacterString>Country of the physical address</gco:CharacterString>
+                  <gco:CharacterString>Country</gco:CharacterString>
                </gmd:country>
                <gmd:electronicMailAddress>
-                  <gco:CharacterString>Address of the electronic mailbox of the responsible organization or individual</gco:CharacterString>
+                  <gco:CharacterString>Email address</gco:CharacterString>
                </gmd:electronicMailAddress>
             </gmd:CI_Address>
          </gmd:address>
