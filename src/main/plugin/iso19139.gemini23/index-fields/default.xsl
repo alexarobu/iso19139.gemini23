@@ -37,4 +37,11 @@
                 exclude-result-prefixes="#all">
 
   <xsl:import href="../../iso19139/index-fields/default.xsl" />
+
+   <xsl:template mode="index"
+      match="gmd:MD_Keywords[gmd:thesaurusName/gmd:CI_Citation/
+                  gmd:title/gco:CharacterString='Ordnance Survey NGD vocabulary']/
+                  gmd:keyword[normalize-space(gco:CharacterString) != '']">
+      <Field name="ngdKeyword" string="{string(normalize-space(gco:CharacterString))}" store="true" index="true"/>
+  </xsl:template>
 </xsl:stylesheet>

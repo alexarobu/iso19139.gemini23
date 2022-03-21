@@ -36,6 +36,7 @@
                 version="2.0" exclude-result-prefixes="#all">
 
   <xsl:import href="../iso19139/update-fixed-info.xsl"/>
+  <xsl:include href="../iso19139/convert/thesaurus-transformation.xsl"/>
 
 
   <!-- Override template to add gss namespace, to avoid being added to the elements inline.
