@@ -139,7 +139,7 @@
     </gmd:LanguageCode>
   </xsl:template>
 
-  <xsl:template match="//*[(@gco:nilReason='inapplicable' or @gco:nilReason='unknown')]/gco:CharacterString" priority="10">
+  <xsl:template match="//*[(@gco:nilReason='inapplicable' or @gco:nilReason='unknown' or @gco:nilReason='missing')]/gco:CharacterString" priority="10">
     <xsl:choose>
       <xsl:when test="not(text())">
         <xsl:message>Empty: <xsl:value-of select="name()" /></xsl:message>
