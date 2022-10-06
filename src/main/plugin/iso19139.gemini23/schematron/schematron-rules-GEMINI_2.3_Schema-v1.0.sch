@@ -1163,23 +1163,23 @@
     <sch:title>Metadata resource type test</sch:title>
     <sch:p>Test to ensure that metadata about datasets include the gmd:MD_DataIdentification element
       and metadata about services include the srv:SV_ServiceIdentification element</sch:p>
-    <sch:rule context="//gmd:MD_Metadata[1]/gmd:identificationInfo[1]">
+    <sch:rule context="//gmd:MD_Metadata[1]/gmd:identificationInfo[1]/*[not(substring-before(name(), concat(':', local-name())) = 'geonet')][1]">
       <sch:assert
         test="
-        ((../gmd:hierarchyLevel[1]/*[1]/@codeListValue = 'dataset' or
-        ../gmd:hierarchyLevel[1]/*[1]/@codeListValue = 'series') and
-        (local-name(*) = 'MD_DataIdentification' or */@gco:isoType = 'gmd:MD_DataIdentification')) or
-        (../gmd:hierarchyLevel[1]/*[1]/@codeListValue != 'dataset' and
-        ../gmd:hierarchyLevel[1]/*[1]/@codeListValue != 'series') or
-        count(../gmd:hierarchyLevel) = 0"
+        ((preceding::gmd:hierarchyLevel[1]/*[1]/@codeListValue = 'dataset' or
+        preceding::gmd:hierarchyLevel[1]/*[1]/@codeListValue = 'series') and
+        (local-name() = 'MD_DataIdentification' or */@gco:isoType = 'gmd:MD_DataIdentification')) or
+        (preceding::gmd:hierarchyLevel[1]/*[1]/@codeListValue != 'dataset' and
+        preceding::gmd:hierarchyLevel[1]/*[1]/@codeListValue != 'series') or
+        count(preceding::gmd:hierarchyLevel) = 0"
         > AT-2a: The first identification information element shall be of type
         gmd:MD_DataIdentification. </sch:assert>
       <sch:assert
         test="
-        ((../gmd:hierarchyLevel[1]/*[1]/@codeListValue = 'service') and
-        (local-name(*) = 'SV_ServiceIdentification' or */@gco:isoType = 'srv:SV_ServiceIdentification')) or
-        (../gmd:hierarchyLevel[1]/*[1]/@codeListValue != 'service') or
-        count(../gmd:hierarchyLevel) = 0"
+        ((preceding::gmd:hierarchyLevel[1]/*[1]/@codeListValue = 'service') and
+        (local-name() = 'SV_ServiceIdentification' or */@gco:isoType = 'srv:SV_ServiceIdentification')) or
+        (preceding::gmd:hierarchyLevel[1]/*[1]/@codeListValue != 'service') or
+        count(preceding::gmd:hierarchyLevel) = 0"
         > AT-2b: The first identification information element shall be of type
         srv:SV_ServiceIdentification. </sch:assert>
     </sch:rule>
