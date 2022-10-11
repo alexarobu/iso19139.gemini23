@@ -244,6 +244,20 @@
       dataset as described by the scope
     </description>
   </element>
+  <element name="gmd:DQ_ThematicAccuracy" id="128.0">
+    <label>Thematic accuracy</label>
+    <description>Accuracy of quantitative attributes and the correctness of non-quantitative attributes and of 
+	the classifications of features and their relationships
+    </description>
+  </element>
+  <element name="gmd:DQ_TemporalAccuracy" id="111.0">
+    <label>Temporal accuracy</label>
+    <description>Accuracy of the temporal attributes and temporal relationships of features</description>
+  </element>
+  <element name="gmd:DQ_PositionalAccuracy" id="11.0">
+    <label>Positional accuracy</label>
+    <description>Accuracy of the position of features</description>
+  </element>
   <element name="gmd:EX_BoundingPolygon" id="341.0">
     <label>Bounding Polygon</label>
     <description>Boundary enclosing the dataset, expressed as the closed set of (x,y)
