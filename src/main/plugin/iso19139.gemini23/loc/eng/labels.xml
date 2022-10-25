@@ -244,6 +244,10 @@
       dataset as described by the scope
     </description>
   </element>
+  <element name="gmd:DQ_LogicalConsistency" id="115.0">
+    <label>Logical consistency</label>
+    <description>Degree of adherence to logical rules of data structure, attribution and relationships (data structure can be conceptual, logical or physical)</description>
+  </element>
   <element name="gmd:DQ_ThematicAccuracy" id="128.0">
     <label>Thematic accuracy</label>
     <description>Accuracy of quantitative attributes and the correctness of non-quantitative attributes and of 
