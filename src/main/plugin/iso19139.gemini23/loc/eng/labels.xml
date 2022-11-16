@@ -183,7 +183,7 @@
   </element>
   <element name="gmd:DQ_DomainConsistency" id="113.0">
     <label>Domain consistency</label>
-    <description>Statement of conformity with the product specification or user requirement against which the data is being evaluated</description>
+    <description>Adherence of values to the value domains</description>
   </element>
   <element name="gmd:DQ_FormatConsistency" id="114.0">
     <label>Format consistency</label>
